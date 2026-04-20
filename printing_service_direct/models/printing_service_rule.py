@@ -69,7 +69,7 @@ class PrintingServiceRule(models.Model):
         report = self.report_id
         printer = self.printer_id
         try:
-            pdf_bytes, _ = report.sudo()._render(picking.ids)
+            pdf_bytes, _ = report.sudo()._render(report.report_name, picking.ids)
             payload_b64 = base64.b64encode(pdf_bytes).decode()
             title = f"{report.name} - {picking.name}"
             for _ in range(max(1, self.copies)):
