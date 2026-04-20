@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_printing_service_rule_form" model="ir.ui.view">
+        <field name="name">printing.service.rule.form</field>
+        <field name="model">printing.service.rule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                        <field name="active"/>
+                    </group>
+                    <group string="Condition">
+                        <field name="picking_type_code"/>
+                        <field name="picking_type_id"/>
+                        <field name="domain" widget="domain"
+                            options="{'model': 'stock.picking'}"/>
+                    </group>
+                    <group string="Output">
+                        <field name="report_id"/>
+                        <field name="printer_id"/>
+                        <field name="copies"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_printing_service_rule_list" model="ir.ui.view">
+        <field name="name">printing.service.rule.list</field>
+        <field name="model">printing.service.rule</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="picking_type_code"/>
+                <field name="picking_type_id"/>
+                <field name="report_id"/>
+                <field name="printer_id"/>
+                <field name="copies"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_printing_service_rule" model="ir.actions.act_window">
+        <field name="name">Print Rules</field>
+        <field name="res_model">printing.service.rule</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

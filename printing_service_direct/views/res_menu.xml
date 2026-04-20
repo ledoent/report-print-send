@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="menu_print_service_root"
+        name="Print Service"
+        parent="stock.menu_stock_config_settings"
+        sequence="100"/>
+
+    <menuitem
+        id="menu_print_service_config"
+        name="Service Config"
+        parent="menu_print_service_root"
+        action="action_printing_service"
+        sequence="10"
+        groups="printing_service_direct.group_printing_service_manager"/>
+
+    <menuitem
+        id="menu_print_service_printers"
+        name="Printers"
+        parent="menu_print_service_root"
+        action="action_printing_service_printer"
+        sequence="20"
+        groups="printing_service_direct.group_printing_service_manager"/>
+
+    <menuitem
+        id="menu_print_service_rules"
+        name="Print Rules"
+        parent="menu_print_service_root"
+        action="action_printing_service_rule"
+        sequence="30"
+        groups="printing_service_direct.group_printing_service_manager"/>
+</odoo>
